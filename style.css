@@ -17,6 +17,20 @@
     --font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+/* ===== LIGHT THEME ===== */
+[data-theme="light"] {
+    --bg-primary: #F2F0EC;
+    --bg-card: #FFFFFF;
+    --bg-dark-card: #FFFFFF;
+    --accent-orange: #FF5C00;
+    --accent-green: #8BC34A;
+    --text-primary: #1A1A1A;
+    --text-secondary: #666666;
+    --text-dark: #000000;
+    --text-fade: rgba(0, 0, 0, 0.08);
+    --border-subtle: rgba(0, 0, 0, 0.08);
+}
+
 /* ===== RESET ===== */
 *,
 *::before,
@@ -67,6 +81,84 @@ img {
     border-radius: 3px;
 }
 
+/* ===== CUSTOM CURSOR ===== */
+@media (pointer: fine) {
+    * {
+        cursor: none !important;
+    }
+}
+
+.cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--accent-orange);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10001;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, opacity 0.15s ease;
+    box-shadow: 0 0 12px rgba(255, 92, 0, 0.5);
+    opacity: 0;
+}
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(255, 92, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, border-width 0.25s ease, opacity 0.15s ease;
+    opacity: 0;
+}
+
+/* Cursor states */
+.cursor-dot.visible,
+.cursor-ring.visible {
+    opacity: 1;
+}
+
+.cursor-dot.hovering {
+    width: 12px;
+    height: 12px;
+    background: var(--accent-green);
+    box-shadow: 0 0 20px rgba(204, 255, 0, 0.6);
+}
+
+.cursor-ring.hovering {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(204, 255, 0, 0.4);
+    border-width: 2px;
+}
+
+.cursor-dot.clicking {
+    width: 6px;
+    height: 6px;
+}
+
+.cursor-ring.clicking {
+    width: 32px;
+    height: 32px;
+    border-width: 3px;
+}
+
+/* Hide custom cursor on touch devices */
+@media (pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-ring {
+        display: none !important;
+    }
+}
+
 /* ===== FLOATING NAVIGATION ===== */
 .floating-nav {
     position: fixed;
@@ -101,6 +193,119 @@ img {
 .nav-icon.active {
     color: var(--text-primary);
     background: rgba(255, 255, 255, 0.1);
+}
+
+/* ===== THEME TOGGLE ===== */
+.nav-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.12);
+    margin: 0 4px;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: #555;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.theme-toggle i {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-toggle:hover i {
+    transform: rotate(30deg);
+}
+
+/* ===== LIGHT THEME OVERRIDES ===== */
+[data-theme="light"] .floating-nav {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .nav-icon {
+    color: #999;
+}
+
+[data-theme="light"] .nav-icon:hover,
+[data-theme="light"] .nav-icon.active {
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .nav-divider {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .theme-toggle {
+    color: #999;
+}
+
+[data-theme="light"] .theme-toggle:hover {
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .profile-card {
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .profile-bio {
+    color: #888;
+}
+
+[data-theme="light"] .hero-title-secondary {
+    -webkit-text-stroke: 2px var(--accent-orange);
+}
+
+[data-theme="light"] .section-title-secondary {
+    -webkit-text-stroke: 2px var(--accent-orange);
+}
+
+[data-theme="light"] .tool-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="light"] .tool-card:hover {
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .experience-date {
+    color: #999;
+}
+
+[data-theme="light"] .cert-issuer,
+[data-theme="light"] .cert-type {
+    color: #999;
+}
+
+[data-theme="light"] .footer {
+    color: #aaa;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: #ccc;
 }
 
 /* ===== MAIN LAYOUT ===== */

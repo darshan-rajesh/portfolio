@@ -17,6 +17,10 @@
 
 <body>
 
+    <!-- ===== CUSTOM CURSOR ===== -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
     <!-- ===== FLOATING NAVIGATION ===== -->
     <nav class="floating-nav" id="floating-nav">
         <a href="#home" class="nav-icon active" data-section="home" title="Home"><i class="fas fa-house"></i></a>
@@ -25,6 +29,8 @@
         <a href="#experience" class="nav-icon" data-section="experience" title="Experience"><i
                 class="fas fa-briefcase"></i></a>
         <a href="#tools" class="nav-icon" data-section="tools" title="Tools"><i class="fas fa-wrench"></i></a>
+        <span class="nav-divider"></span>
+        <button class="theme-toggle" id="theme-toggle" title="Toggle theme"><i class="fas fa-moon"></i></button>
 
     </nav>
 
@@ -72,15 +78,15 @@
                 </div>
                 <div class="stats-container">
                     <div class="stat-item">
-                        <span class="stat-number">7+</span>
+                        <span class="stat-number" data-target="7">0+</span>
                         <span class="stat-label">PROJECTS<br>COMPLETED</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">17+</span>
+                        <span class="stat-number" data-target="17">0+</span>
                         <span class="stat-label">CERTIFICATIONS<br>EARNED</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number">5+</span>
+                        <span class="stat-number" data-target="5">0+</span>
                         <span class="stat-label">TECH STACKS<br>MASTERED</span>
                     </div>
                 </div>
