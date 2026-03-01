@@ -478,6 +478,43 @@ img {
     transform: scale(1.15);
 }
 
+.resume-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding: 14px 28px;
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent-orange), #ff7b00);
+    color: #fff;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(255, 92, 0, 0.3);
+}
+
+.resume-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 92, 0, 0.5);
+    background: linear-gradient(135deg, #ff7b00, var(--accent-orange));
+    color: #fff;
+}
+
+[data-theme="light"] .resume-btn {
+    box-shadow: 0 6px 20px rgba(255, 92, 0, 0.4);
+}
+
+.resume-btn i {
+    transition: transform 0.3s ease;
+}
+
+.resume-btn:hover i {
+    transform: translateX(5px);
+}
+
 /* ===== HERO SECTION ===== */
 .hero-section {
     display: flex;
