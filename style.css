@@ -42,14 +42,27 @@
 
 html {
     scroll-behavior: smooth;
+    background: var(--bg-primary);
 }
 
 body {
-    background: var(--bg-primary);
+    background: transparent;
     color: var(--text-primary);
     font-family: var(--font-family);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+/* ===== 3D BACKGROUND ===== */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.8;
 }
 
 a {
@@ -310,6 +323,8 @@ img {
 
 /* ===== MAIN LAYOUT ===== */
 .container {
+    position: relative;
+    z-index: 10;
     display: flex;
     max-width: 1400px;
     margin: 0 auto;
@@ -1054,10 +1069,5 @@ img {
 
     .highlight-title {
         font-size: 18px;
-    }
-
-    .project-name,
-    .experience-company {
-        font-size: 20px;
     }
 }

@@ -13,9 +13,16 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Preload Three.js for faster background initialization -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" as="script">
 </head>
 
 <body>
+    <!-- ===== 3D BACKGROUND ===== -->
+    <canvas id="bg-canvas"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="3d-background.js"></script>
 
     <!-- ===== CUSTOM CURSOR ===== -->
     <div class="cursor-dot" id="cursor-dot"></div>
@@ -430,7 +437,7 @@
         </main>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 
 </html>
